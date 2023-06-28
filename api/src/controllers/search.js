@@ -103,7 +103,7 @@ search.get('/', async (req, res) => {
   });
 
   if (filteredGames.length === 0) {
-   res.status(404).json({ message: 'No se encontraron resultados.' });
+   res.status(404).json({ message: 'No results found.' });
   } else {
    res.status(200).json(filteredGames);
   }

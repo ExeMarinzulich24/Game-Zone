@@ -13,7 +13,7 @@ gameId.get('/:id', async (req, res) => {
  try {
   const gameId = req.params.id;
   let filteredGame;
-  //si le id pertenece a la bd busca y trae la informacion de la base de datos
+  //si le id pertenece a la db busca y trae la informacion de la base de datos
   if (gameId.includes('-')) {
    const dbGame = await Videogame.findOne({ where: { id: gameId } });
    if (!dbGame) {
