@@ -26,8 +26,12 @@ export function validate(input) {
     case input.platforms.length === 0:
       errors.platforms = 'You must select at least 1 platform'
       break
+    case input.name.length >= 90:
+      errors.name = 'You cannot exceed ninety characters'
+      break
     default:
       break
+      
   }
 
   return errors

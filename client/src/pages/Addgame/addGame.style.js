@@ -10,7 +10,9 @@ const fadeIn = keyframes`
 `
 export const AddGameContainer = styled.section`
   display: flex;
-  flex-wrap: wrap;
+  flex-w
+  
+  p: wrap;
   width: 100%;
   background-color: rgba(16, 18, 27, 0.4);
   backdrop-filter: blur(20px);

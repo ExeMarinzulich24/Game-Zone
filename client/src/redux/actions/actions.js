@@ -15,7 +15,7 @@ export const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE'
 
 export const getGames = () => async (dispatch) => {
   try {
-    const response = await axios.get('http://localhost:3001/videogames')
+    const response = await axios.get('/videogames')
     dispatch({
       type: GET_GAMES,
       payload: response.data,
@@ -31,7 +31,7 @@ export const getGames = () => async (dispatch) => {
 export const searchGame = (name) => async (dispatch) => {
   try {
     const response = await axios.get(
-      `http://localhost:3001/videogames/?name=${name}`
+      `/videogames/?name=${name}`
     )
     dispatch({
       type: SEARCH_GAME,
@@ -47,7 +47,7 @@ export const searchGame = (name) => async (dispatch) => {
 
 export const getGame = (id) => async (dispatch) => {
   try {
-    const response = await axios.get(`http://localhost:3001/videogame/${id}`)
+    const response = await axios.get(`/videogame/${id}`)
     dispatch({
       type: GET_GAME,
       payload: response.data,
@@ -62,7 +62,7 @@ export const getGame = (id) => async (dispatch) => {
 
 export const getGenres = () => async (dispatch) => {
   try {
-    const response = await axios.get(`http://localhost:3001/genres/get`)
+    const response = await axios.get(`/genres/get`)
     dispatch({
       type: GET_GENRES,
       payload: response.data,
@@ -78,7 +78,7 @@ export const getGenres = () => async (dispatch) => {
 export const addGame = (gameData) => async (dispatch) => {
   try {
     const response = await axios.post(
-      'http://localhost:3001/videogames/',
+      '/videogames/',
       gameData,
       {
         headers: {
@@ -90,11 +90,13 @@ export const addGame = (gameData) => async (dispatch) => {
       type: ADD_GAME,
       payload: response.data,
     })
+    return 1
   } catch (error) {
     dispatch({
       type: GET_ERRORS,
       payload: error,
     })
+    return 0
   }
 }
 

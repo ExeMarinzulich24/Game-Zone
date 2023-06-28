@@ -69,9 +69,15 @@ export default function AddGame() {
     const errors = validate(gameData)
     setErrors(errors)
     if (Object.keys(errors).length === 0) {
-      dispatch(addGame(gameData))
-    }
-    setSuccess('Tu juego se ha creado correctamente')
+      dispatch(addGame(gameData)).then((response) => {
+        if (response === 1)
+         {setTimeout(() => {
+          navigate(`/add-game/success`)
+        }, 1500)}else
+        {alert("Error: Game name or description exceeds expected characters")}
+        })
+        }
+    setSuccess('Your has been uploaded successfully')
     setTimeout(() => {
       navigate(`/add-game/success`)
     }, 1500)
